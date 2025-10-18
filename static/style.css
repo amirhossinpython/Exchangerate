@@ -1,0 +1,198 @@
+/* فونت و تنظیمات پایه */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* داشبورد اصلی */
+.dashboard {
+    width: 100%;
+    max-width: 1000px;
+    animation: fadeIn 1s ease-in;
+}
+
+/* هدر */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    color: #ffd700;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #cfcfcf;
+}
+
+/* کارت‌ها */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    padding: 25px 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideUp 0.8s ease-in;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
+    transform: rotate(25deg);
+    transition: all 0.5s ease;
+}
+
+.card:hover::before {
+    top: -60%;
+    left: -60%;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 40px rgba(0,0,0,0.6);
+}
+
+/* تیتر کارت */
+.card h2 {
+    margin-bottom: 15px;
+    color: #ffcc00;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* مقادیر داخل کارت */
+.card p {
+    font-size: 1.1rem;
+    margin: 8px 0;
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.card p span {
+    font-weight: 700;
+    color: #00ff99;
+    font-size: 1.15rem;
+}
+
+/* رنگ اختصاصی کارت‌ها */
+.card.gold { border-top: 5px solid #ffd700; }
+.card.coin { border-top: 5px solid #ffa500; }
+.card.currency { border-top: 5px solid #00bfff; }
+.card.crypto { border-top: 5px solid #ff1493; }
+
+/* دکمه بروزرسانی */
+#refreshBtn {
+    margin: 40px auto 10px;
+    display: block;
+    padding: 15px 35px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#refreshBtn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background: rgba(255,255,255,0.2);
+    transition: height 0.3s ease;
+    z-index: 1;
+}
+
+#refreshBtn:hover::after {
+    height: 100%;
+}
+
+#refreshBtn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+}
+
+/* وضعیت بروزرسانی */
+#status {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    min-height: 24px;
+    color: #00ff99;
+    font-weight: bold;
+}
+
+/* انیمیشن‌ها */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* واکنش‌گرایی موبایل */
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .card h2 {
+        font-size: 1.3rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+
+    #refreshBtn {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+}

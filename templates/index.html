@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 داشبورد قیمت ارز و طلا</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>🏆 داشبورد لحظه‌ای قیمت‌ها</h1>
+            <p id="date">تاریخ و زمان: {{ data.date }}</p>
+        </header>
+
+        <div class="cards-container">
+            <div class="card gold">
+                <h2>💰 طلا</h2>
+                <p>▫️ مثقال: <span id="gold_mesghal">{{ data.gold_mesghal }}</span> ریال</p>
+                <p>▫️ ۱۸ عیار: <span id="gold_18">{{ data.gold_18 }}</span> ریال</p>
+                <p>▫️ ۲۴ عیار: <span id="gold_24">{{ data.gold_24 }}</span> ریال</p>
+            </div>
+
+            <div class="card coin">
+                <h2>🪙 سکه</h2>
+                <p>▫️ طرح جدید: <span id="new_coin">{{ data.new_coin }}</span> ریال</p>
+                <p>▫️ طرح قدیم: <span id="old_coin">{{ data.old_coin }}</span> ریال</p>
+                <p>▫️ نیم بها: <span id="half_coin">{{ data.half_coin }}</span> ریال</p>
+            </div>
+
+            <div class="card currency">
+                <h2>💲 ارز</h2>
+                <p>▫️ دلار: <span id="dollar">{{ data.dollar }}</span> ریال</p>
+                <p>▫️ یورو: <span id="euro">{{ data.euro }}</span> ریال</p>
+            </div>
+
+            <div class="card crypto">
+                <h2>📈 کریپتو</h2>
+                <p>▫️ تتر: <span id="tether">{{ data.tether }}</span> تومان</p>
+                <p>▫️ بیت‌کوین: <span id="btc">{{ data.btc }}</span> دلار</p>
+                <p>▫️ اتریوم: <span id="eth">{{ data.eth }}</span> دلار</p>
+            </div>
+        </div>
+
+        <button id="refreshBtn">🔄 بروزرسانی قیمت</button>
+        <p id="status"></p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
